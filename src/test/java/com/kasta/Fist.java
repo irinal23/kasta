@@ -3,9 +3,11 @@ package com.kasta;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public class Fist {
     private WebDriver driver;
@@ -24,11 +26,16 @@ public class Fist {
     }
 
     @Test
-    public void findButton() {
+    public void findButton() throws InterruptedException {
         driver.get("https://kasta.ua/uk/");
-        WebElement element= driver.findElement(By.xpath(".//label[@for='2dfaa991-2238-f03a-93c5-08da3d3ebdad']"));
+        WebElement element= driver.findElement(By.xpath(".//div[@class='mt-1' and text()='Чоловікам']"));
         element.click();
     }
-
+    @Test
+    public void find() throws InterruptedException {
+        driver.get("https://kasta.ua/uk/");
+        WebElement element= driver.findElement(By.xpath(".//div[@class='mt-1' and text()='Зима']"));
+        element.click();
+    }
 
 }
